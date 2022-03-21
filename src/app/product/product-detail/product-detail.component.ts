@@ -2,12 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Products } from '../products';
-
-type ProductType = {
-  name: string;
-  price: number;
-  description: string;
-};
+import { ProductType } from '../product-type';
 
 @Component({
   selector: 'app-product-detail',
@@ -16,7 +11,12 @@ type ProductType = {
 })
 export class ProductDetailComponent implements OnInit {
   products: ProductType[] = Products;
-  product!: ProductType;
+  product: ProductType = {
+    name: '',
+    price: 0,
+    description: '',
+    coverImage: '',
+  };
 
   constructor(private route: ActivatedRoute) {}
 

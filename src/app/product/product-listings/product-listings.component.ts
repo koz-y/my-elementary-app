@@ -1,12 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Products } from '../products';
-
-type ProductType = {
-  name: string;
-  price: number;
-  description: string;
-};
+import { ProductType } from '../product-type';
 
 @Component({
   selector: 'app-product-listings',
