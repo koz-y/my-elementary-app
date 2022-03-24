@@ -1,24 +1,22 @@
-<div class="container mt-4">
-  <div class="card mb-3">
-    <div class="row g-0">
-      <div class="col">
-        <img
-          src="{{ product.coverImage }}"
-          class="img-fluid rounded-start"
-          alt="{{ product.name }}"
-        />
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title">{{ product.name }}</h5>
-          <p class="card-text">{{ product.description }}</p>
-          <a href="#" class="btn btn-primary">{{ product.price }}</a>
+<div *ngIf="product">
+  <div class="container mt-4">
+    <div class="card mb-3">
+      <div class="row g-0">
+        <div class="col">
+          <img
+            src="{{ product.coverImage }}"
+            class="img-fluid rounded-start"
+            alt="{{ product.name }}"
+          />
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text mt-5">{{ product.description }}</p>
+            <a href="#" class="btn btn-primary">{{ product.price }}</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<!-- <div>{{ product.name }}</div>
-<div>{{ product.price }}</div>
-<div>{{ product.description }}</div> -->
