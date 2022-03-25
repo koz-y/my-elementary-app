@@ -1,10 +1,14 @@
 {
   "name": "my-elementary-app",
   "version": "0.0.0",
+  "engines": {
+    "node": "16.14.0",
+    "npm": "8.3.1"
+  },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "npm run start --prefix server",
+    "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
