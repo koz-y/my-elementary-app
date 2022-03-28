@@ -1,4 +1,14 @@
 <div *ngIf="product">
+  <div
+    class="page-header page-header-xs"
+    data-parallax="true"
+    [ngStyle]="{
+      'background-image': 'url(' + product.coverImage + ')'
+    }"
+  >
+    <div class="filter"></div>
+  </div>
+
   <div class="container mt-4">
     <div class="card mb-3">
       <div class="row g-0">
