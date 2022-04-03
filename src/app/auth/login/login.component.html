@@ -1,0 +1,68 @@
+<div class="wrapper">
+  <div class="page-header" style="background-image: url('./assets/img/bruno-abatti.jpg')">
+    <div class="filter"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-6 ms-auto me-auto">
+          <div class="card card-register">
+            <h3 class="card-title">Welcome</h3>
+            <form
+              class="register-form d-grid gap-2"
+              [formGroup]="loginForm"
+              (ngSubmit)="login()"
+            >
+              <label>Email</label>
+              <input
+                formControlName="email"
+                name="email"
+                type="email"
+                class="form-control no-border"
+                placeholder="Email"
+                required
+              />
+
+              <label>Password</label>
+              <input
+                formControlName="password"
+                name="password"
+                type="password"
+                class="form-control no-border"
+                placeholder="Password"
+                required
+              />
+
+              <div
+                *ngIf="errors && errors.length > 0"
+                class="alert alert-warning"
+                role="alert"
+              >
+                <p *ngFor="let error of errors">
+                  {{ error.detail }}
+                </p>
+              </div>
+
+              <button
+                [disabled]="loginForm.invalid"
+                class="btn btn-danger btn-round"
+                type="submit"
+              >
+                Login
+              </button>
+            </form>
+            <div class="forgot">
+              <a href="javascript:void(0)" class="btn btn-link btn-danger"
+                >Forgot password?</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="demo-footer text-center">
+        <h6>
+          &copy; {{ data | date: "yyyy" }}, made with
+          <fa-icon [icon]="faHeart"></fa-icon> by Creative Tim
+        </h6>
+      </div>
+    </div>
+  </div>
+</div>

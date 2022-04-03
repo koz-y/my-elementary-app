@@ -1,0 +1,149 @@
+<div class="wrapper">
+  <div
+    class="page-header"
+    style="background-image: url('./assets/img/soroush-karimi.jpg')"
+  >
+    <div class="filter"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-7 col-12 ms-auto">
+          <div class="info info-horizontal">
+            <div class="icon">
+              <fa-icon [icon]="faUmbrella"></fa-icon>
+            </div>
+            <div class="description">
+              <h3>We've got you covered</h3>
+              <p>
+                Larger, yet dramatically thinner. More powerful, but remarkably power
+                efficient. Everything you need in a single case.
+              </p>
+            </div>
+          </div>
+          <div class="info info-horizontal">
+            <div class="icon">
+              <fa-icon [icon]="faMapSigns"></fa-icon>
+            </div>
+            <div class="description">
+              <h3>Clear Directions</h3>
+              <p>
+                Efficiently unleash cross-media information without cross-media value.
+                Quickly maximize timely deliverables for real-time schemas.
+              </p>
+            </div>
+          </div>
+          <div class="info info-horizontal">
+            <div class="icon">
+              <fa-icon [icon]="faUserSecret"></fa-icon>
+            </div>
+            <div class="description">
+              <h3>We value your privacy</h3>
+              <p>
+                Completely synergize resource taxing relationships via premier niche
+                markets.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-5 col-12 me-auto">
+          <div class="card card-register">
+            <h3 class="card-title text-center">Register</h3>
+            <div class="social">
+              <button
+                href="javascript:void(0)"
+                class="btn btn-just-icon btn-facebook me-1"
+              >
+                <fa-icon [icon]="faFacebookF"></fa-icon>
+              </button>
+              <button href="javascript:void(0)" class="btn btn-just-icon btn-google me-1">
+                <fa-icon [icon]="faGoogle"></fa-icon>
+              </button>
+              <button
+                href="javascript:void(0)"
+                class="btn btn-just-icon btn-twitter me-1"
+              >
+                <fa-icon [icon]="faTwitter"></fa-icon>
+              </button>
+            </div>
+
+            <div class="division">
+              <div class="line l"></div>
+              <span>or</span>
+              <div class="line r"></div>
+            </div>
+            <form
+              class="register-form d-grid gap-2"
+              [formGroup]="registerForm"
+              (ngSubmit)="register()"
+            >
+              <input
+                formControlName="username"
+                name="username"
+                type="text"
+                class="form-control"
+                placeholder="User Name"
+                required
+              />
+
+              <input
+                formControlName="email"
+                name="email"
+                type="email"
+                class="form-control"
+                placeholder="Email"
+                required
+              />
+
+              <input
+                formControlName="password"
+                name="password"
+                type="password"
+                class="form-control"
+                placeholder="Password"
+                required
+              />
+
+              <input
+                formControlName="confirmPassword"
+                name="confirmPassword"
+                type="password"
+                class="form-control"
+                placeholder="Confirm Password"
+                required
+              />
+
+              <div
+                *ngIf="errors && errors.length > 0"
+                class="alert alert-danger"
+                role="alert"
+              >
+                <p *ngFor="let error of errors">
+                  {{ error.detail }}
+                </p>
+              </div>
+
+              <button
+                [disabled]="registerForm.invalid"
+                class="btn btn-round"
+                type="submit"
+              >
+                Register
+              </button>
+            </form>
+            <div class="login">
+              <p>
+                Already have an account?
+                <a routerLink="/login">Log in</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="demo-footer text-center">
+      <h6>
+        &copy; {{ data | date: "yyyy" }}, made with
+        <fa-icon [icon]="faHeart"></fa-icon> by Creative Tim
+      </h6>
+    </div>
+  </div>
+</div>

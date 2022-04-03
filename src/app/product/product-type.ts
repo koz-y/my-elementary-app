@@ -3,5 +3,5 @@ export type ProductType = {
   price: number;
   description: string;
   coverImage: string;
-  _id?: string;
+  id?: string;
 };
