@@ -6,6 +6,7 @@ const path = require('path')
 const FakeDb = require('./fake-db')
 const config = require('./config/index')
 const productRouts = require('./routes/products')
+const userRouts = require('./routes/users')
 
 const app = express()
 const port = process.env.PORT || 3001
@@ -17,7 +18,9 @@ mongoose.connect(config.DB_URI).then(() => {
   }
 })
 
+app.use(express.json())
 app.use('/api/v1/products', productRouts)
+app.use('/api/v1/users', userRouts)
 
 if (process.env.NODE_ENV === 'production') {
   const appPath = path.join(__dirname, '..', 'dist', 'my-elementary-app')
