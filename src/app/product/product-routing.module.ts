@@ -1,9 +1,10 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from '@angular/core'
+import { RouterModule, Routes } from '@angular/router'
 
-import { ProductDetailComponent } from './product-detail/product-detail.component';
-import { ProductListingsComponent } from './product-listings/product-listings.component';
-import { ProductComponent } from './product.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component'
+import { ProductListingsComponent } from './product-listings/product-listings.component'
+import { ProductComponent } from './product.component'
+import { AuthGuard } from '../auth/service/auth.guard'
 
 const routes: Routes = [
   {
@@ -11,10 +12,10 @@ const routes: Routes = [
     component: ProductComponent,
     children: [
       { path: '', component: ProductListingsComponent },
-      { path: ':productId', component: ProductDetailComponent },
+      { path: ':productId', component: ProductDetailComponent, canActivate: [AuthGuard] },
     ],
   },
-];
+]
 
 @NgModule({
   declarations: [],
