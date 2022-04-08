@@ -2,6 +2,12 @@ const express = require('express')
 const router = express.Router()
 
 const productModel = require('../model/product')
+const UserCtl = require('../controllers/user')
+
+// 動作検証用仮エンドポイント
+// router.get('/auth', UserCtl.authMiddleware, (req, res) => {
+//   return res.json({ secret: true })
+// })
 
 // パラメータ無し：すべてのプロダクト
 router.get('', (req, res) => {
@@ -11,7 +17,7 @@ router.get('', (req, res) => {
 })
 
 // パラメータ（id）：指定したidのプロダクト
-router.get('/:productId', (req, res) => {
+router.get('/:productId', UserCtl.authMiddleware, (req, res) => {
   const productId = req.params.productId
   productModel.findById(productId, (err, foundProduct) => {
     if (err) {

@@ -8,6 +8,8 @@ import { RegisterComponent } from './register/register.component'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import { RouterModule, Routes } from '@angular/router'
 import { AuthService } from './service/auth.service'
+import { HTTP_INTERCEPTORS } from '@angular/common/http'
+import { TokenInterceptor } from './service/token.interceptor'
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -23,6 +25,9 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes),
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+  ],
 })
 export class AuthModule {}

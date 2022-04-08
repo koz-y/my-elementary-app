@@ -42,8 +42,8 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.authServide.login(this.loginForm.value).subscribe({
-      next: result => {
-        console.log(result)
+      next: token => {
+        // console.log(token)
         this.router.navigate(['/'])
       },
       error: (err: HttpErrorResponse) => {
