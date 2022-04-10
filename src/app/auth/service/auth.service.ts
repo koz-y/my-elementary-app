@@ -19,7 +19,7 @@ class DecodedToken {
 })
 export class AuthService {
   postUsersUrl = '/api/v1/users/'
-  redirectUrl: string | null = null
+  redirectUrl: string | null = '/'
   private decodedToken
 
   constructor(private http: HttpClient, private router: Router) {
@@ -45,6 +45,8 @@ export class AuthService {
         this.decodedToken = jwt.decodeToken(token)
         localStorage.setItem('app-auth', token)
         localStorage.setItem('app-meta', JSON.stringify(this.decodedToken))
+        this.router.navigate([this.redirectUrl])
+
         return token
       })
     )
