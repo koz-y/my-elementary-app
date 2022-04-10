@@ -22,7 +22,7 @@ export class AuthGuard implements CanActivate {
     const url: string = state.url
 
     if (this.authService.isAuthenticated()) {
-      console.log('authGuard OK')
+      // console.log('authGuard OK')
       return true
     }
 
